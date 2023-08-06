@@ -53,14 +53,14 @@ def imshow(image, title=None):
     else:
         image = image.squeeze(0).permute(1, 2, 0).cpu().numpy()
         image = (image*255).astype(np.uint8)
+        
+        plt.figure(frameon=False)
+        plt.axis('off')
 
         plt.imshow(image, cmap='gray' if image.shape[2] == 1 else None)
     
     if title is not None:
         plt.title(title)
-        
-        plt.figure(frameon=False)
-        plt.axis('off')
     plt.show()
 
 def BlackAndWhite(image):
